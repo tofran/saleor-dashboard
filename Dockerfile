@@ -15,4 +15,5 @@ RUN STATIC_URL=${STATIC_URL} API_URI=${API_URI} MARKETPLACE_URL=${MARKETPLACE_UR
 FROM nginx:stable
 WORKDIR /app
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx/override-api-url-docker-entrypoint.sh /docker-entrypoint.d/50-override-api-url.sh
 COPY --from=builder /app/build/ /app/
