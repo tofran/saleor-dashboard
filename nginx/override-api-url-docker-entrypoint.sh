@@ -13,7 +13,7 @@ escape_url() {
     printf '%s\n' "$0" | sed -e 's/[\/&]/\\&/g'
 }
 
-if [[ "$API_URL" == "$ORIGINAL_API_URL" ]]; then
+if [[ "$API_URL" != "$ORIGINAL_API_URL" ]]; then
     echo "Replacing API_URL with '$API_URL'"
 
     escaped_original_api_url=$(escape_url "$ORIGINAL_API_URL")
@@ -23,6 +23,4 @@ if [[ "$API_URL" == "$ORIGINAL_API_URL" ]]; then
         -type f \
         -name 'dashboard.*.js' \
         -exec sed -i "s/$escaped_original_api_url/$escaped_api_url/g" {} \;
-
-    echo "Done."
 fi
