@@ -13,5 +13,5 @@ if [[ -z "${API_URL}" ]]; then
 else
     echo "Setting API_URL to: $API_URL"
 
-    sed -i "s#SALEOR_API_URL = .*#SALEOR_API_URL = \"$API_URL\";#" "$INDEX_BUNDLE_PATH"
+    sed -i "s#API_URL:.*#API_URL: \"$API_URL\",#" "$INDEX_BUNDLE_PATH"
 fi

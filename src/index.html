@@ -9,7 +9,10 @@
     <meta name="robots" content="noindex" />
     <title>Saleor e-commerce</title>
     <script>
-      window.SALEOR_API_URL = "http://localhost:8000/graphql/";
+      window.__SALEOR_CONFIG__ = {
+        API_URL: "<%= API_URL %>",
+        APP_MOUNT_URI: "<%= APP_MOUNT_URI %>",
+      };
     </script>
   </head>
 
